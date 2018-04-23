@@ -8,19 +8,16 @@ package animals;
 import java.util.Random;
 
 /**
- *
  * @author Martim Ferreira - 21/04/2018
- * 
  */
 public abstract class Animal {
     
     private int age;
     private String gender;
-    private float moveSpeed, walkSpeed, runSpeed;
     private float belly, currentEnergy, maxEnergy, runEnergyCost;
     private boolean alive;
     
-    public Animal(float walkSpeed, float runSpeed, float runEnergyCost) {
+    public Animal(float runEnergyCost) {
         age = 0;
         
         Random rand = new Random();
@@ -33,10 +30,6 @@ public abstract class Animal {
                 gender = "Male";
                 break;
         }
-        
-        moveSpeed = walkSpeed;
-        this.walkSpeed = walkSpeed;
-        this.runSpeed = runSpeed;
         belly = 100;
         currentEnergy = 100;
         maxEnergy = 100;
@@ -52,9 +45,6 @@ public abstract class Animal {
     */
     public void eat(String mealType) {
         switch (mealType) {
-            case "rat":
-                belly += 15;
-                break;
             case "smallRation":
                 belly += 33;
                 break;
@@ -79,20 +69,11 @@ public abstract class Animal {
     }
     
     /*
-    * Change movement speed to walking speed.
-    */
-    public void walk() {
-        moveSpeed = walkSpeed;
-    }
-    
-    /*
-    * Change movement speed to run speed.
     * Performing this action costs energy.
     * The animal cannot perform it if it does not have the necessary energy.
     */
     public void run() {
         if (currentEnergy >= runEnergyCost) {
-            moveSpeed = runSpeed;
             currentEnergy -= runEnergyCost;
         } else System.out.println("Not enough energy!");
     };
@@ -128,27 +109,6 @@ public abstract class Animal {
     */
     public String getGender() {
         return gender;
-    }
-
-    /*
-    * Returns the animal's current movement speed.
-    */
-    public float getMoveSpeed() {
-        return moveSpeed;
-    }
-
-    /*
-    * Returns the animal's current walk speed.
-    */
-    public float getWalkSpeed() {
-        return walkSpeed;
-    }
-
-    /*
-    * Returns the animal's current running speed.
-    */
-    public float getRunSpeed() {
-        return runSpeed;
     }
 
     /*
@@ -198,27 +158,6 @@ public abstract class Animal {
     */
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    /*
-    * Modifies the animal's movement speed.
-    */
-    public void setMoveSpeed(float moveSpeed) {
-        this.moveSpeed = moveSpeed;
-    }
-
-    /*
-    * Modifies the animal's walking speed.
-    */
-    public void setWalkSpeed(float walkSpeed) {
-        this.walkSpeed = walkSpeed;
-    }
-
-    /*
-    * Modifies the animal's running speed.
-    */
-    public void setRunSpeed(float runSpeed) {
-        this.runSpeed = runSpeed;
     }
 
     /*

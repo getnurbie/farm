@@ -6,17 +6,14 @@
 package animals;
 
 /**
- *
  * @author Martim Ferreira - 22/04/2018
- * 
  */
 public class Bird extends Animal {
     
-    private float flySpeed, flyEnergyCost;
+    private float flyEnergyCost;
     
-    public Bird(float walkSpeed, float runSpeed, float runEnergyCost, float flySpeed, float flyEnergyCost) {
-        super(walkSpeed, runSpeed, runEnergyCost);
-        this.flySpeed = flySpeed;
+    public Bird(float runEnergyCost, float flyEnergyCost) {
+        super(runEnergyCost);
         this.flyEnergyCost = flyEnergyCost;
     }
     
@@ -26,27 +23,11 @@ public class Bird extends Animal {
     * The bird cannot perform it if it does not have the necessary energy.
     */
     private void fly() {
-        if (super.getCurrentEnergy() >= super.getRunEnergyCost()) {
-            super.setMoveSpeed(flySpeed);
-            
+        if (super.getCurrentEnergy() >= flyEnergyCost) {
             float newEnergy = super.getCurrentEnergy();
             newEnergy -= flyEnergyCost;
             super.setCurrentEnergy(newEnergy);
         } else System.out.println("Not enough energy!");
-    }
-
-    /*
-    * Returns the bird's fly speed.
-    */
-    public float getFlySpeed() {
-        return flySpeed;
-    }
-
-    /*
-    * Modifies the bird's fly speed.
-    */
-    public void setFlySpeed(float flySpeed) {
-        this.flySpeed = flySpeed;
     }
 
     /*
