@@ -1,7 +1,5 @@
 /*
- * 
  * This class represents the basic actions and attributes of every animal.
- * 
  */
 package animals;
 
@@ -38,7 +36,6 @@ public abstract class Animal {
     }
     
     /*
-    * "rat" fills belly by 15 points.
     * "smallRation" fills belly by 33 points.
     * "mediumRation" fills belly by 50 points.
     * "largeRation" completely fills belly.
@@ -75,13 +72,18 @@ public abstract class Animal {
     public void run() {
         if (currentEnergy >= runEnergyCost) {
             currentEnergy -= runEnergyCost;
-        } else System.out.println("Not enough energy!");
+        } else { 
+            System.out.println("Not enough energy!"); 
+            sleep(8);
+        }
     };
     
     /*
-    * Change alive variable to false, meaning dead.
+    * Kill animal.
     */
     public void die() {
+        belly = 0;
+        currentEnergy = 0;
         alive = false;
     };
     

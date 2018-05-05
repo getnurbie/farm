@@ -1,14 +1,12 @@
 /*
- * 
  * This class represents the basic actions and attributes of every bird.
- * 
  */
 package animals;
 
 /**
  * @author Martim Ferreira - 22/04/2018
  */
-public class Bird extends Animal {
+public class Bird extends Prey {
     
     private float flyEnergyCost;
     

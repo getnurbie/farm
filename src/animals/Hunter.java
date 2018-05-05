@@ -22,14 +22,14 @@ public abstract class Hunter extends Animal {
         boolean success = false;
         
         /* 
-            Dog has 4% chance of successfully hunting a rat
-            Cat has 20% chance of successfully hunting a rat
-            Cat has 10% chance of successfully hunting a rat
+            Dog has 4% chance of successfully hunting a rat.
+            Cat has 20% chance of successfully hunting a rat.
+            Cat has 10% chance of successfully hunting a rat.
         
-            If the prey is sleeping chance is 50%
+            If the prey is sleeping chance is 50%.
         */
         
-        // Roll the die!
+        // Roll.
         Random rand = new Random();
         int val = rand.nextInt(100);
         
@@ -37,20 +37,20 @@ public abstract class Hunter extends Animal {
             case "dog":
                 super.run();
                 
-                // Prey is sleeping
+                // Prey is sleeping.
                 if (hour >= 22 && prey.equals("rat")) if (val >= 0 && val <= 50) success = true;
                 
-                // Prey is awake
+                // Prey is awake.
                 else if (hour < 22 && prey.equals("rat")) if (val >= 0 && val <= 4) success = true;
                 
                 break;
             case "cat":
                 super.run();
                 
-                // Prey is sleeping
+                // Prey is sleeping.
                 if (hour >= 22) if (val >= 0 && val <= 50) success = true;
                 
-                // Prey is awake
+                // Prey is awake.
                 else if (hour < 22 && prey.equals("rat")) if (val >= 0 && val <= 20) success = true;
                 else if (hour < 22 && prey.equals("bird")) if (val >= 0 && val <= 10) success = true;
                 
