@@ -10,9 +10,20 @@ public class Bird extends Prey {
     
     private float flyEnergyCost;
     
+    /*
+    * Custom constructor.
+    */
     public Bird(float runEnergyCost, float flyEnergyCost) {
         super(runEnergyCost);
         this.flyEnergyCost = flyEnergyCost;
+    }
+    
+    /*
+    * Default constructor.
+    */
+    public Bird() {
+        super(25);
+        this.flyEnergyCost = 5;
     }
     
     /*
@@ -24,8 +35,23 @@ public class Bird extends Prey {
         if (super.getCurrentEnergy() >= flyEnergyCost) {
             float newEnergy = super.getCurrentEnergy();
             newEnergy -= flyEnergyCost;
-            super.setCurrentEnergy(newEnergy);
-        } else System.out.println("Not enough energy!");
+            super.setCurrentEnergy(newEnergy, "Prey");
+        } else {
+            System.out.println("Not enough energy!");
+            super.sleep(8, "Prey");
+        }
+    }
+    
+    @Override
+    public void getHunted(boolean huntResult) {
+        if (huntResult) super.die();
+        else {
+            fly();
+            
+            float val = super.getCurrentEnergy();
+            val += 10;
+            super.setCurrentEnergy(val, "Prey");
+        }
     }
 
     /*

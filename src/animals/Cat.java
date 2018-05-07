@@ -8,12 +8,18 @@ package animals;
  */
 public class Cat extends Hunter {
     
-    public Cat(String name, float runEnergyCost) {
-        super(name, runEnergyCost);
+    /*
+    * Custom constructor.
+    */
+    public Cat(String name, float runEnergyCost, float attackEnergyCost, float getAttackedEnergyCost) {
+        super(name, runEnergyCost, attackEnergyCost, getAttackedEnergyCost);
     }
     
-    public Cat(String name) {
-        super(name, 5);
+   /*
+    * Default constructor.
+    */
+    public Cat() {
+        super("Unnamed cat", 5, 10, (float) 15);
     }
     
 }

@@ -12,11 +12,17 @@ public abstract class Prey extends Animal {
         super(runEnergyCost);
     }
     
+    /*
+    * If prey escapes recover some energy (after running).
+    */
     public void getHunted(boolean huntResult) {
         if (huntResult) super.die();
         else {
-            // Not really eating, just using it to recover energy.
-            super.eat("smallRation");
+            this.run("Prey");
+            
+            float val = super.getCurrentEnergy();
+            val += 10;
+            super.setCurrentEnergy(val, "Prey");
         }
     }
     

@@ -43,13 +43,13 @@ public abstract class Animal {
     public void eat(String mealType) {
         switch (mealType) {
             case "smallRation":
-                belly += 33;
+                setBelly(belly += 33);
                 break;
             case "mediumRation":
-                belly += 50;
+                setBelly(belly += 50);
                 break;
             case "largeRation":
-                belly = 100;
+                setBelly(100);
                 break;
         }
         
@@ -59,22 +59,25 @@ public abstract class Animal {
     /*
     * Recovers energy depending on the amount of hours slept.
     * Formula: re = (100 * hours) / 8
+    * TODO: wake up earlier if max energy is reached
     */
-    public void sleep(int hours) {
+    public void sleep(int hours, String name) {
         currentEnergy += (100 * hours) / 8;
         if (currentEnergy > maxEnergy) currentEnergy = maxEnergy;
+        
+        System.out.println(name + " sleeps for " + hours + " hours. It recovers some energy.");
     }
     
     /*
     * Performing this action costs energy.
     * The animal cannot perform it if it does not have the necessary energy.
     */
-    public void run() {
+    public void run(String name) {
         if (currentEnergy >= runEnergyCost) {
             currentEnergy -= runEnergyCost;
         } else { 
             System.out.println("Not enough energy!"); 
-            sleep(8);
+            sleep(8, name);
         }
     };
     
@@ -166,14 +169,20 @@ public abstract class Animal {
     * Modifies the animal's bully fullness.
     */
     public void setBelly(float belly) {
-        this.belly = belly;
+        if (this.belly + belly > 100) this.belly = 100;
+        else this.belly = belly;
     }
 
     /*
     * Modifies the animal's current energy.
+    * If it's out of energy go to sleep.
     */
-    public void setCurrentEnergy(float currentEnergy) {
-        this.currentEnergy = currentEnergy;
+    public void setCurrentEnergy(float currentEnergy, String name) {
+        if (this.currentEnergy - currentEnergy < 0) {
+            currentEnergy = 0;
+            sleep(8, name);
+        }
+        else this.currentEnergy = currentEnergy;
     }
 
     /*

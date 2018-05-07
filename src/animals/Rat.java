@@ -8,8 +8,18 @@ package animals;
  */
 public class Rat extends Prey {
     
+    /*
+    * Custom constructor.
+    */
     public Rat(float runEnergyCost) {
         super(runEnergyCost);
+    }
+    
+    /*
+    * Default constructor.
+    */
+    public Rat() {
+        super(4);
     }
     
 }
