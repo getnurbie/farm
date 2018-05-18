@@ -56,6 +56,11 @@ public abstract class Animal {
         if (belly > 100) belly = 100;
     }
     
+    public void passTime(){
+        setCurrentEnergy(getCurrentEnergy()-7, "");
+        setBelly(getBelly()-7);
+    }
+    
     /*
     * Recovers energy depending on the amount of hours slept.
     * Formula: re = (100 * hours) / 8

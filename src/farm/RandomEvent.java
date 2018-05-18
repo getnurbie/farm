@@ -1,17 +1,23 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class serves to show the event that should happen and the description of the event
  */
 package farm;
 
 /**
  *
- * @author 170262007
+ * @author Martim Ferreira, Nicole Vieira, Rui Iria
  */
 public class RandomEvent {
-    public String description;
+    public String description; //variable description
+    //modifier and selector
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    //constructor
     public RandomEvent(String description) {
         this.description = description;
     }
