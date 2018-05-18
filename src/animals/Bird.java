@@ -31,7 +31,7 @@ public class Bird extends Prey {
     * Performing this action costs energy.
     * The bird cannot perform it if it does not have the necessary energy.
     */
-    private void fly() {
+    public void fly() {
         if (super.getCurrentEnergy() >= flyEnergyCost) {
             float newEnergy = super.getCurrentEnergy();
             newEnergy -= flyEnergyCost;

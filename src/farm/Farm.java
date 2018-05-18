@@ -3,6 +3,8 @@
  */
 package farm;
 import animals.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 import java.util.Scanner;
 
@@ -12,6 +14,57 @@ import java.util.Scanner;
 public class Farm {
     
     public static void main(String[] args) {
+        
+        int hour = 0;
+        
+        ArrayList<Hunter> hunters = new ArrayList<Hunter>();
+        hunters.add(new Dog());
+        hunters.add(new Cat());
+        
+        ArrayList<Bird> birds = new ArrayList<Bird>();
+        birds.add(new Bird());
+        
+        ArrayList<Rat> rats = new ArrayList<Rat>();
+        rats.add(new Rat());
+        
+        ArrayList<RandomEvent> randomEvents = new ArrayList<RandomEvent>();
+        randomEvents.add(new RandomEvent("Dog fights cat."));
+        randomEvents.add(new RandomEvent("Bird flies."));
+        randomEvents.add(new RandomEvent("Rat eats."));
+        
+        for (;;) {
+            // Generate integer to find out if an event should happen.
+            Random rand = new Random();
+            int prob = rand.nextInt(100);
+            
+            if (prob >= 50) {
+                // What event should happen.
+                prob = rand.nextInt(2);
+                
+                switch(prob) {
+                    case 0:
+                        hunters.get(0).fight(hunters.get(0), hunters.get(1));
+                        break;
+                    case 1:
+                        birds.get(0).fly();
+                        break;
+                    case 2:
+                        rats.get(0).eat("small");
+                        break;
+                }
+            }
+            
+            
+            // if hour >= 22 && hour <= 6 animals should be sleeping
+            // each hour every animal should lose energy and belly
+            
+            
+            
+            if (hour == 24) hour = 0;
+            else hour++;
+        }
+        
+        /*
         Scanner scan = new Scanner(System.in);
         
         System.out.println("1 - Dog hunts rat");
@@ -158,6 +211,7 @@ public class Farm {
                 
                 break;
         }
+        */
     }
     
 }
