@@ -4,7 +4,7 @@
 package animals;
 
 /**
- * @author Martim Ferreira - 05/05/2018
+ * @author Martim Ferreira - 05/05/2018, Nicole Vieira e Rui Iria
  */
 public abstract class Prey extends Animal {
     

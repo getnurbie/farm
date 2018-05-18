@@ -6,7 +6,7 @@ package animals;
 import java.util.Random;
 
 /**
- * @author Martim Ferreira - 21/04/2018
+ * @author Martim Ferreira - 21/04/2018, Nicole Vieira e Rui Iria
  */
 public abstract class Animal {
     
@@ -54,6 +54,11 @@ public abstract class Animal {
         }
         
         if (belly > 100) belly = 100;
+    }
+    
+    public void passTime(){
+        setCurrentEnergy(getCurrentEnergy()-7, "");
+        setBelly(getBelly()-7);
     }
     
     /*

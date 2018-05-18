@@ -4,7 +4,7 @@
 package animals;
 
 /**
- * @author Martim Ferreira - 23/04/2018
+ * @author Martim Ferreira - 23/04/2018, Nicole Vieira e Rui Iria
  */
 public class Dog extends Hunter {
     

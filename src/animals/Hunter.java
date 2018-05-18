@@ -6,7 +6,7 @@ package animals;
 import java.util.Random;
 
 /**
- * @author Martim Ferreira - 23/04/2018
+ * @author Martim Ferreira - 23/04/2018, Nicole Vieira e Rui Iria
  */
 public abstract class Hunter extends Animal {
     
